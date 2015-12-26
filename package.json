@@ -19,10 +19,7 @@
     "devDependencies": {},
     "keywords": [
         "stb",
-        "sdk",
-        "device",
-        "tv",
-        "devkit",
+        "stbsdk",
         "framework",
         "app",
         "core"

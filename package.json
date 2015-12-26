@@ -12,8 +12,8 @@
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
     "dependencies": {
-        "stb-model": "1.*.*",
-        "stb-router": "1.*.*",
+        "cjs-model": "1.*.*",
+        "spa-router": "1.*.*",
         "stb-keys": "1.*.*"
     },
     "devDependencies": {},

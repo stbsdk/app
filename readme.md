@@ -11,14 +11,14 @@ Contains common data used by other modules, handles global events and screen res
 Can be used as a common events bus.
 
 
-## Installation
+## Installation ##
 
 ```bash
 npm install stb-app
 ```
 
 
-## Usage
+## Usage ##
 
 Add the instance to the scope:
 
@@ -37,19 +37,19 @@ At run-time has the following attributes:
 
 
 
-## Debug mode
+## Debug mode ##
 
 > There is a global var `DEBUG` which activates additional consistency checks and protection logic not available in release mode.
 
 In debug mode the constructor is exposed to the global namespace as `window.app`.
 
 
-## Contribution
+## Contribution ##
 
 If you have any problem or suggestion please open an issue [here](https://github.com/stbsdk/app/issues).
 Pull requests are welcomed with respect to the [JavaScript Code Style](https://github.com/DarkPark/jscs).
 
 
-## License
+## License ##
 
 `stb-app` is released under the [GPL-3.0 License](http://opensource.org/licenses/GPL-3.0).

@@ -5,8 +5,8 @@
 
 'use strict';
 
-var Model    = require('stb-model'),
-    router   = require('stb-router'),
+var Model    = require('cjs-model'),
+    router   = require('spa-router'),
     keys     = require('stb-keys'),
     metrics  = require('../../../config/metrics'),
     keyCodes = {},

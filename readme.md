@@ -1,5 +1,5 @@
-STB SDK application core
-========================
+Application core
+================
 
 [![NPM version](https://img.shields.io/npm/v/stb-app.svg?style=flat-square)](https://www.npmjs.com/package/stb-app)
 [![Dependencies Status](https://img.shields.io/david/stbsdk/app.svg?style=flat-square)](https://david-dm.org/stbsdk/app)

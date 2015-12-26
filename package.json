@@ -4,7 +4,7 @@
     "description": "STB SDK application core.",
     "author": {
         "name": "Stanislav Kalashnik",
-        "email": "sk@infomir.eu"
+        "email": "darkpark.main@gmail.com"
     },
     "repository": "stbsdk/app",
     "scripts": {

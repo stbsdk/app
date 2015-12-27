@@ -16,7 +16,6 @@
         "spa-app": "spasdk/app",
         "stb-keys": "stbsdk/keys"
     },
-    "devDependencies": {},
     "keywords": [
         "stb",
         "stbsdk",

@@ -8,7 +8,7 @@
 var Model    = require('cjs-model'),
     router   = require('spa-router'),
     keys     = require('stb-keys'),
-    metrics  = require('../../../config/metrics'),
+    metrics  = require('../../config/metrics'),
     keyCodes = {},
     app, key;
 

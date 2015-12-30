@@ -41,8 +41,6 @@ At run-time has the following attributes:
 
 > There is a global var `DEBUG` which activates additional consistency checks and protection logic not available in release mode.
 
-In debug mode the constructor is exposed to the global namespace as `window.app`.
-
 
 ## Contribution ##
 

@@ -6,9 +6,9 @@ Application core
 [![Gitter](https://img.shields.io/badge/gitter-join%20chat-blue.svg?style=flat-square)](https://gitter.im/DarkPark/stbsdk)
 
 
-Main module to create STB SDK application. It's an instance of [Model](https://github.com/stbsdk/model) component.
-Contains common data used by other modules, handles global events and screen resolution.
-Can be used as a common events bus.
+Main module to create STB application.
+Extends SPA [app](https://github.com/spasdk/app) module.
+Adds STB-specific logic (handle screen resolution, STB events, work inside iframe, etc.).
 
 
 ## Installation ##
@@ -26,15 +26,12 @@ Add the instance to the scope:
 var app = require('stb-app');
 ```
 
-At run-time has the following attributes:
+At run-time adds the following attributes:
 
- Name            | Description
------------------|-------------
- app.data.debug  | Enable logging and debugging flag set by debug module
- app.data.host   | True if executed on the STB device, set by debug module at runtime.
- app.data.screen | Screen geometry and margins.
- app.data.time   | Different timestamps marks.
-
+ Name               | Description
+--------------------|-------------
+ app.data.host      | True if executed on the STB device, set by debug module at runtime.
+ app.data.screen    | Screen geometry and margins.
 
 
 ## Debug mode ##

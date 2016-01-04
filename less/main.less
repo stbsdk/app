@@ -6,6 +6,10 @@
 // @license GNU GENERAL PUBLIC LICENSE Version 3
 
 
+/**********************/
+/* general STB styles */
+/**********************/
+
 html, body {
     width:               unit(@width, px);
     height:              unit(@height, px);
@@ -15,3 +19,12 @@ html, body {
     font-size:           unit(@fontSize, px);
     -webkit-user-select: none;
 }
+
+
+/**********************/
+/* current STB styles */
+/**********************/
+
+// "less" directory is resolved by gulp less task to
+// path.join(process.env.PATH_ROOT, process.env.PATH_SRC, 'less')
+@import "less/main";

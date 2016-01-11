@@ -13,8 +13,8 @@
     },
     "dependencies": {
         "cjs-model": "1.*.*",
-        "spa-app": "spasdk/app",
-        "stb-keys": "stbsdk/keys"
+        "spa-app": "1.*.*",
+        "stb-keys": "1.*.*"
     },
     "keywords": [
         "stb",

@@ -396,5 +396,11 @@ if ( window.gSTB && gSTB.SetNativeStringMode ) {
 }
 
 
+// activate development mechanisms and tools
+if ( DEVELOP ) {
+    require('stb-develop');
+}
+
+
 // public
 module.exports = app;

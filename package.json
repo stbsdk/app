@@ -14,6 +14,7 @@
     "dependencies": {
         "cjs-model": "1.*.*",
         "spa-app": "1.*.*",
+        "stb-develop": "1.*.*",
         "stb-keys": "1.*.*"
     },
     "keywords": [

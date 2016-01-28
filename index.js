@@ -8,7 +8,7 @@
 var app      = require('spa-app'),
     //router   = require('spa-router'),
     keys     = require('stb-keys'),
-    metrics  = require('../../config/metrics'),
+    metrics  = require('../../src/js/metrics'),
     keyCodes = {},
     key;
 

@@ -13,9 +13,9 @@
     },
     "dependencies": {
         "cjs-model": "1.*.*",
-        "spa-app": "1.*.*",
-        "stb-develop": "1.*.*",
-        "stb-keys": "1.*.*"
+        "spa-app": "spasdk/app",
+        "stb-develop": "stbsdk/develop",
+        "stb-keys": "stbsdk/keys"
     },
     "keywords": [
         "stb",

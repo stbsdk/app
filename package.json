@@ -12,7 +12,6 @@
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
     "dependencies": {
-        "cjs-model": "1.*.*",
         "spa-app": "spasdk/app",
         "stb-develop": "stbsdk/develop",
         "stb-keys": "stbsdk/keys"

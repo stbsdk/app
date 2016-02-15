@@ -14,7 +14,7 @@
     "dependencies": {
         "spa-app": "spasdk/app",
         "stb-develop": "stbsdk/develop",
-        "stb-keys": "stbsdk/keys"
+        "stb-rc": "stbsdk/rc"
     },
     "keywords": [
         "stb",

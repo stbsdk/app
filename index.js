@@ -7,7 +7,7 @@
 
 var app      = require('spa-app'),
     //router   = require('spa-router'),
-    keys     = require('stb-keys'),
+    codes    = require('stb-rc').codes,
     metrics  = require('../../src/js/metrics'),
     keyCodes = {},
     key;
@@ -112,12 +112,12 @@ app.setScreen(metrics[screen.height] || metrics[720]);
 
 
 // extract key codes
-for ( key in keys ) {
+for ( key in codes ) {
     if ( key === 'volumeUp' || key === 'volumeDown' ) {
         continue;
     }
     // no need to save key names
-    keyCodes[keys[key]] = true;
+    keyCodes[codes[key]] = true;
 }
 
 

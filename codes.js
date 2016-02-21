@@ -89,15 +89,15 @@ codes.EVENT_HDMI_CONNECT = 32;
 codes.EVENT_HDMI_DISCONNECT = 33;
 
 /**
- * Recording task has been finished successfully. See codesendix 13. JavaScript API for PVR subsystem
+ * Recording task has been finished successfully. See appendix 13. JavaScript API for PVR subsystem
  *
- * @const {number} EVENT_RECORD_FINISH_SUCCESSFULL
+ * @const {number} EVENT_RECORD_FINISH_SUCCESSFUL
  * @default 34
  */
-codes.EVENT_RECORD_FINISH_SUCCESSFULL = 34;
+codes.EVENT_RECORD_FINISH_SUCCESSFUL = 34;
 
 /**
- * Recording task has been finished with error. See codesendix 13. JavaScript API for PVR subsystem
+ * Recording task has been finished with error. See appendix 13. JavaScript API for PVR subsystem
  *
  * @const {number} EVENT_RECORD_FINISH_ERROR
  * @default 35
@@ -107,7 +107,7 @@ codes.EVENT_RECORD_FINISH_ERROR = 35;
 /**
  * Scanning DVB Channel in progress
  *
- * @const {number} EVENT_DVB_SCANING
+ * @const {number} EVENT_DVB_SCANNING
  * @default 40
  */
 codes.EVENT_DVB_SCANING = 40;
@@ -123,10 +123,10 @@ codes.EVENT_DVB_FOUND = 41;
 /**
  * DVB Channel EPG update
  *
- * @const {number} EVENT_DVB_CHANELL_EPG_UPDATE
+ * @const {number} EVENT_DVB_CHANNEL_EPG_UPDATE
  * @default 42
  */
-codes.EVENT_DVB_CHANELL_EPG_UPDATE = 42;
+codes.EVENT_DVB_CHANNEL_EPG_UPDATE = 42;
 
 /**
  * DVB antenna power off

@@ -12,7 +12,7 @@ var app      = require('spa-app'),
     codes    = require('stb-rc').codes,
     metrics  = require('../../src/js/metrics'),
     keyCodes = {},
-    key;
+    key, linkCSS;
 
 
 // inside frame/iframe
@@ -64,8 +64,6 @@ app.host = true;
  * @return {boolean} operation status
  */
 app.setScreen = function ( metrics ) {
-    var linkCSS;
-
     if ( DEBUG ) {
         if ( arguments.length !== 1 ) { throw new Error(__filename + ': wrong arguments number'); }
     }
@@ -82,9 +80,6 @@ app.setScreen = function ( metrics ) {
         // set max browser window size
         window.moveTo(0, 0);
         window.resizeTo(metrics.width, metrics.height);
-
-        // get the link tag
-        linkCSS = document.querySelector('link[rel=stylesheet]');
 
         // already was initialized
         if ( linkCSS && linkCSS instanceof HTMLLinkElement ) {

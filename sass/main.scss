@@ -2,7 +2,21 @@
 // @license GNU GENERAL PUBLIC LICENSE Version 3
 
 // parent
-@import "spa-app/sass/main.scss";
+//@import "spa-app/sass/main.scss";
+
+html, body {
+    width:  $width;
+    height: $height;
+    font-family:         Ubuntu, sans-serif;
+    font-size:           $fontSize;
+    -webkit-user-select: none;
+}
+
+@if $DEVELOP {
+    html, body {
+        -webkit-user-select: text;
+    }
+}
 
 /**********************/
 /* general STB styles */

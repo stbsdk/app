@@ -1,0 +1,40 @@
+/* spa-app: release */
+html, body {
+    width: 720px;
+    height: 480px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0; }
+
+table {
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0; }
+    table td {
+        padding: 0; }
+
+.maxh {
+    height: 100%; }
+
+.maxw {
+    width: 100%; }
+
+a {
+    text-decoration: none; }
+
+/* spa-app: develop */
+body.develop {
+    outline: 1px dashed #005000;
+    outline-offset: 1px; }
+
+/* stb-app: release */
+html, body {
+    width: 720px;
+    height: 480px;
+    font-family: Ubuntu, sans-serif;
+    font-size: 18px;
+    -webkit-user-select: none; }
+
+/* stb-app: develop */
+html, body {
+    -webkit-user-select: text; }

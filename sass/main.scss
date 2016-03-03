@@ -2,8 +2,9 @@
 // @license GNU GENERAL PUBLIC LICENSE Version 3
 
 // parent
-//@import "spa-app/sass/main.scss";
+@import "../node_modules/spa-app/sass/main.scss";
 
+/* stb-app: release */
 html, body {
     width:  $width;
     height: $height;
@@ -13,11 +14,8 @@ html, body {
 }
 
 @if $DEVELOP {
+    /* stb-app: develop */
     html, body {
         -webkit-user-select: text;
     }
 }
-
-/**********************/
-/* general STB styles */
-/**********************/

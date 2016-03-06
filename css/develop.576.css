@@ -1,6 +1,9 @@
 /* spa-app: release */
 html, body {
-    height: 100%;
+    height: 576px;
+    width: 720px;
+    font-size: 18px;
+    font-family: Ubuntu, sans-serif;
     overflow: hidden;
     margin: 0;
     padding: 0; }
@@ -28,10 +31,6 @@ body.develop {
 
 /* stb-app: release */
 html, body {
-    width: 720px;
-    height: 576px;
-    font-family: Ubuntu, sans-serif;
-    font-size: 18px;
     -webkit-user-select: none; }
 
 /* stb-app: develop */

@@ -1,15 +1,10 @@
 // @author Stanislav Kalashnik <darkpark.main@gmail.com>
 // @license GNU GENERAL PUBLIC LICENSE Version 3
 
-// parent
-@import "../node_modules/spa-app/sass/main.scss";
+@import "../node_modules/spa-app/sass/main";
 
 /* stb-app: release */
 html, body {
-    width:  $width;
-    height: $height;
-    font-family:         Ubuntu, sans-serif;
-    font-size:           $fontSize;
     -webkit-user-select: none;
 }
 

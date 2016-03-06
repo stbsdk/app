@@ -1,6 +1,9 @@
 // @author Stanislav Kalashnik <darkpark.main@gmail.com>
 // @license GNU GENERAL PUBLIC LICENSE Version 3
 
+@import "720";
+
 $width:  1920px;
 $height: 1080px;
-$fontSize: 33px;
+$fontSize: $fontSize * 1.5;
+$fontFamily: Ubuntu, sans-serif;

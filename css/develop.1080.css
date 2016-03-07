@@ -26,8 +26,8 @@ a {
 
 /* spa-app: develop */
 body.develop {
-    outline: 1px dashed #005000;
-    outline-offset: 1px; }
+    outline: 1px solid yellow;
+    outline-offset: -1px; }
 
 /* stb-app: release */
 html, body {

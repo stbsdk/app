@@ -10,9 +10,13 @@
 var app      = require('spa-app'),
     //router   = require('spa-router'),
     codes    = require('stb-rc').codes,
-    metrics  = require('../../src/js/metrics'),
+    //metrics  = require('../../src/js/metrics'),
     keyCodes = {},
     key, linkCSS;
+
+
+// public
+module.exports = app;
 
 
 // inside frame/iframe
@@ -32,12 +36,17 @@ if ( window.parent && window.parent.gSTB ) {
 }
 
 
+// global application configuration
+// in metrics.js file in js root
+app.metrics = require('app:metrics');
+
+
 /**
  * True if executed on the STB device, set by debug module at runtime.
  *
  * @type {boolean}
  */
-app.host = true;
+app.data.host = true;
 
 
 /**
@@ -105,7 +114,7 @@ app.setScreen = function ( metrics ) {
 
 
 // apply screen size, position and margins
-app.setScreen(metrics[screen.height] || metrics[720]);
+app.setScreen(app.metrics[screen.height] || app.metrics[720]);
 
 
 // extract key codes
@@ -397,7 +406,3 @@ if ( window.gSTB && gSTB.SetNativeStringMode ) {
 if ( DEVELOP ) {
     require('stb-develop');
 }
-
-
-// public
-module.exports = app;

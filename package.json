@@ -17,6 +17,9 @@
         "stb-develop": "stbsdk/develop",
         "stb-rc": "stbsdk/rc"
     },
+    "devDependencies": {
+        "stb-eslint-config": "stbsdk/eslint-config"
+    },
     "keywords": [
         "stb",
         "stbsdk",

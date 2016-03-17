@@ -73,12 +73,12 @@ app.data.host = true;
  * @return {boolean} operation status
  */
 app.setScreen = function ( metrics ) {
-    if ( DEBUG ) {
+    if ( DEVELOP ) {
         if ( arguments.length !== 1 ) { throw new Error(__filename + ': wrong arguments number'); }
     }
 
     if ( metrics ) {
-        if ( DEBUG ) {
+        if ( DEVELOP ) {
             if ( typeof metrics !== 'object' ) { throw new Error(__filename + ': wrong metrics type'); }
         }
 
@@ -99,7 +99,7 @@ app.setScreen = function ( metrics ) {
         // load CSS file base on resolution
         linkCSS = document.createElement('link');
         linkCSS.rel  = 'stylesheet';
-        linkCSS.href = 'css/' + (DEBUG ? 'develop.' : 'release.') + metrics.height + '.css?' + +new Date();
+        linkCSS.href = 'css/' + (DEVELOP ? 'develop.' : 'release.') + metrics.height + '.css?' + +new Date();
         document.head.appendChild(linkCSS);
 
         // provide global access

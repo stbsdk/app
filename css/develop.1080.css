@@ -36,3 +36,10 @@ html, body {
 /* stb-app: develop */
 html, body {
     -webkit-user-select: text; }
+
+body > canvas {
+    cursor: none;
+    visibility: hidden;
+    position: absolute; }
+    body > canvas.active {
+        visibility: visible; }

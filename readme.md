@@ -34,9 +34,9 @@ At run-time adds the following attributes:
  app.data.screen    | Screen geometry and margins.
 
 
-## Debug mode ##
+## Development mode ##
 
-> There is a global var `DEBUG` which activates additional consistency checks and protection logic not available in release mode.
+> There is a global var `DEVELOP` which activates additional consistency checks and protection logic not available in release mode.
 
 
 ## Contribution ##

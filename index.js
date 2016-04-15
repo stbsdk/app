@@ -7,7 +7,7 @@
 
 'use strict';
 
-var app      = require('spa-app'),
+var app      = require('./lib/core'),
     //router   = require('spa-router'),
     codes    = require('stb-rc').codes,
     //metrics  = require('../../src/js/metrics'),
@@ -15,30 +15,30 @@ var app      = require('spa-app'),
     metrics, key, linkCSS;
 
 
-// public
+// early return
 module.exports = app;
 
 
 // inside frame/iframe
-if ( window.parent && window.parent.gSTB ) {
-    // link to the outer global objects
-    window.dvbManager         = window.parent.dvbManager;
-    window.epgManager         = window.parent.epgManager;
-    window.gSTB               = window.parent.gSTB;
-    window.pvrManager         = window.parent.pvrManager;
-    window.stbDownloadManager = window.parent.stbDownloadManager;
-    window.stbStorage         = window.parent.stbStorage;
-    window.stbUpdate          = window.parent.stbUpdate;
-    window.stbUPnP            = window.parent.stbUPnP;
-    window.stbWebWindow       = window.parent.stbWebWindow;
-    window.stbWindowMgr       = window.parent.stbWindowMgr;
-    window.timeShift          = window.parent.timeShift;
-}
+// if ( window.parent && window.parent.gSTB ) {
+//     // link to the outer global objects
+//     window.dvbManager         = window.parent.dvbManager;
+//     window.epgManager         = window.parent.epgManager;
+//     window.gSTB               = window.parent.gSTB;
+//     window.pvrManager         = window.parent.pvrManager;
+//     window.stbDownloadManager = window.parent.stbDownloadManager;
+//     window.stbStorage         = window.parent.stbStorage;
+//     window.stbUpdate          = window.parent.stbUpdate;
+//     window.stbUPnP            = window.parent.stbUPnP;
+//     window.stbWebWindow       = window.parent.stbWebWindow;
+//     window.stbWindowMgr       = window.parent.stbWindowMgr;
+//     window.timeShift          = window.parent.timeShift;
+// }
 
 
 // global application configuration
 // in metrics.js file in js root
-metrics = require('app:metrics');
+//metrics = require('app:metrics');
 
 
 /**
@@ -46,7 +46,7 @@ metrics = require('app:metrics');
  *
  * @type {boolean}
  */
-app.host = true;
+//app.host = true;
 
 
 /**
@@ -65,56 +65,56 @@ app.host = true;
 //app.screen = null;
 
 
-/**
- * Set crops, total, content size and link the corresponding CSS file.
- *
- * @param {Object} metrics screen params specific to resolution
- *
- * @return {boolean} operation status
- */
-app.setScreen = function ( metrics ) {
-    if ( DEVELOP ) {
-        if ( arguments.length !== 1 ) { throw new Error(__filename + ': wrong arguments number'); }
-    }
-
-    if ( metrics ) {
-        if ( DEVELOP ) {
-            if ( typeof metrics !== 'object' ) { throw new Error(__filename + ': wrong metrics type'); }
-        }
-
-        // calculate and extend
-        metrics.availHeight = metrics.height - (metrics.availTop + metrics.availBottom);
-        metrics.availWidth  = metrics.width - (metrics.availLeft + metrics.availRight);
-
-        // set max browser window size
-        window.moveTo(0, 0);
-        window.resizeTo(metrics.width, metrics.height);
-
-        // already was initialized
-        if ( linkCSS && linkCSS instanceof HTMLLinkElement ) {
-            // remove all current CSS styles
-            document.head.removeChild(linkCSS);
-        }
-
-        // load CSS file base on resolution
-        linkCSS = document.createElement('link');
-        linkCSS.rel  = 'stylesheet';
-        linkCSS.href = 'css/' + (DEVELOP ? 'develop.' : 'release.') + metrics.height + '.css?' + +new Date();
-        document.head.appendChild(linkCSS);
-
-        // provide global access
-        app.metrics = metrics;
-
-        return true;
-    }
-
-    // nothing has applied
-    return false;
-};
-
-
-// apply screen size, position and margins
-app.setScreen(metrics[app.query.screenHeight] || metrics[screen.height] || metrics[720]);
+// /**
+//  * Set crops, total, content size and link the corresponding CSS file.
+//  *
+//  * @param {Object} metrics screen params specific to resolution
+//  *
+//  * @return {boolean} operation status
+//  */
+// app.setScreen = function ( metrics ) {
+//     if ( DEVELOP ) {
+//         if ( arguments.length !== 1 ) { throw new Error(__filename + ': wrong arguments number'); }
+//     }
+//
+//     if ( metrics ) {
+//         if ( DEVELOP ) {
+//             if ( typeof metrics !== 'object' ) { throw new Error(__filename + ': wrong metrics type'); }
+//         }
+//
+//         // calculate and extend
+//         metrics.availHeight = metrics.height - (metrics.availTop + metrics.availBottom);
+//         metrics.availWidth  = metrics.width - (metrics.availLeft + metrics.availRight);
+//
+//         // set max browser window size
+//         window.moveTo(0, 0);
+//         window.resizeTo(metrics.width, metrics.height);
+//
+//         // already was initialized
+//         if ( linkCSS && linkCSS instanceof HTMLLinkElement ) {
+//             // remove all current CSS styles
+//             document.head.removeChild(linkCSS);
+//         }
+//
+//         // load CSS file base on resolution
+//         linkCSS = document.createElement('link');
+//         linkCSS.rel  = 'stylesheet';
+//         linkCSS.href = 'css/' + (DEVELOP ? 'develop.' : 'release.') + metrics.height + '.css?' + +new Date();
+//         document.head.appendChild(linkCSS);
+//
+//         // provide global access
+//         app.metrics = metrics;
+//
+//         return true;
+//     }
+//
+//     // nothing has applied
+//     return false;
+// };
+//
+//
+// // apply screen size, position and margins
+// app.setScreen(metrics[app.query.screenHeight] || metrics[screen.height] || metrics[720]);
 
 
 // extract key codes
@@ -404,5 +404,6 @@ if ( window.gSTB && gSTB.SetNativeStringMode ) {
 
 // activate development mechanisms and tools
 if ( DEVELOP ) {
-    require('stb-develop');
+    //require('stb-develop');
+    require('./lib/develop/main');
 }

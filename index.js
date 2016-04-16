@@ -8,6 +8,7 @@
 'use strict';
 
 var app      = require('./lib/core'),
+    events   = require('spa-app/lib/events'),
     //router   = require('spa-router'),
     codes    = require('stb-rc').codes,
     //metrics  = require('../../src/js/metrics'),
@@ -16,7 +17,7 @@ var app      = require('./lib/core'),
 
 
 // early return
-module.exports = app;
+//module.exports = app;
 
 
 // inside frame/iframe
@@ -128,268 +129,269 @@ for ( key in codes ) {
 
 
 // create stbEvent global object
-window.stbEvent = {};
+window.stbEvent = require('./lib/events');
 
-
-/**
- * Device media events.
- *
- * @event module:stb/app#media
- * @type object
- * @property {number} code of event
- */
-
-
-/**
- * Event on messages from a window.
- *
- * @event module:stb/app#message
- * @type object
- * @property {boolean} broadcast message flag
- * @property {string} message received from window
- * @property {object} data received from window
- */
-
-
-/**
- * Fires stb device media events.
- *
- * @param {number} event code
- * @param {string} info associated data in **JSON** format
- */
-window.stbEvent.onEvent = function ( event, info ) {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onEvent ) {
-            // proxy call
-            frame.stbEvent.onEvent(event, info);
-        }
-    });
-
-    // there are some listeners
-    if ( app.events['media'] ) {
-        // additional data
-        if ( info ) {
-            try {
-                info = JSON.parse(info);
-            } catch ( e ) {
-                debug.log(e);
-            }
-        }
-
-        // notify listeners
-        app.emit('media', {code: parseInt(event, 10), info: info});
-    }
-};
-
-
-/**
- * Fires event on broadcast messages from a window.
- *
- * @param {number} windowId that sent message
- * @param {string} message text
- * @param {object} data in sent message
- * @fires module:/stb/app#message
- */
-window.stbEvent.onBroadcastMessage = function ( windowId, message, data ) {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onBroadcastMessage ) {
-            // proxy call
-            frame.stbEvent.onBroadcastMessage(windowId, message, data);
-        }
-    });
-
-    if ( app.events['message'] ) {
-        // notify listeners
-        app.emit('message', {
-            broadcast: true,
-            windowId: windowId,
-            message: message,
-            data: data
-        });
-    }
-};
-
-
-/**
- * Fires event on messages from a window.
- *
- * @param {number} windowId that sent message
- * @param {string} message text
- * @param {object} data in sent message
- * @fires module:/stb/app#message
- */
-window.stbEvent.onMessage = function ( windowId, message, data ) {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onMessage ) {
-            // proxy call
-            frame.stbEvent.onMessage(windowId, message, data);
-        }
-    });
-
-    if ( app.events['message'] ) {
-        // notify listeners
-        app.emit('message', {
-            broadcast: false,
-            windowId: windowId,
-            message: message,
-            data: data
-        });
-    }
-};
-
-
-/**
- * Event on device mount state.
- *
- * @event module:stb/app#mount
- * @type object
- * @property {boolean} state of mount device
- */
-
-
-/**
- * Fires device mount state event.
- *
- * @param {boolean} state of mount device
- * @fires module:/stb/app#mount
- */
-window.stbEvent.onMount = function ( state ) {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onMount ) {
-            // proxy call
-            frame.stbEvent.onMount(state);
-        }
-    });
-
-    if ( app.events['device:mount'] ) {
-        // notify listeners
-        app.emit('device:mount', {state: state});
-    }
-};
-
-
-/**
- * Event on callback on internet browser link clicked.
- *
- * @event module:stb/app#media:available
- */
-
-
-/**
- * Fires event of callback on internet browser link clicked to ask user what to do with link: play or download.
- *
- * @param {string} mime file type
- * @param {string} url resource link
- *
- * @fires module:/stb/app#media:available
- */
-window.stbEvent.onMediaAvailable = function ( mime, url ) {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onMediaAvailable ) {
-            // proxy call
-            frame.stbEvent.onMediaAvailable(mime, url);
-        }
-    });
-
-    if ( app.events['media:available'] ) {
-        // notify listeners
-        app.emit('media:available', {mime: mime, url: url});
-    }
-};
-
-
-/**
- * Event on internet connection state.
- *
- * @event module:stb/app#internet:state
- * @type object
- * @property {boolean} state of internet connection
- */
-
-
-/**
- * Fires new internet connection state event.
- *
- * @param {boolean} state of internet connection
- * @fires module:/stb/app#internet:state
- */
-window.stbEvent.onNetworkStateChange = function ( state ) {
-    if ( app.events['internet:state'] ) {
-        // notify listeners
-        app.emit('internet:state', {state: state});
-    }
-};
-
-
-/**
- * Event on document loading progress changes.
- *
- * @event module:stb/app#browser:progress
- * @type object
- * @property {number} progress of document loading
- */
-
-
-/**
- * Fires document loading progress changes event.
- *
- * @param {number} progress of document loading
- * fires module:/stb/app#browser:progress
- */
-window.stbEvent.onWebBrowserProgress = function ( progress ) {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onWebBrowserProgress ) {
-            // proxy call
-            frame.stbEvent.onWebBrowserProgress(progress);
-        }
-    });
-
-    if ( app.events['browser:progress'] ) {
-        // notify listeners
-        app.emit('browser:progress', {progress: progress});
-    }
-};
-
-
-/**
- * Event on browser web window activation event.
- *
- * @event module:stb/app#window:focus
- */
-
-
-/**
- * Fires browser web window activation event.
- *
- * fires module:/stb/app#window:focus
- */
-window.stbEvent.onWindowActivated = function () {
-    // proxy to all frames
-    Array.prototype.forEach.call(window.frames, function ( frame ) {
-        // necessary global object is present
-        if ( frame.stbEvent && frame.stbEvent.onWindowActivated ) {
-            // proxy call
-            frame.stbEvent.onWindowActivated();
-        }
-    });
-
-    if ( app.events['window:focus'] ) {
-        // notify listeners
-        app.emit('window:focus');
-    }
-};
+//
+//
+// /**
+//  * Device media events.
+//  *
+//  * @event module:stb/app#media
+//  * @type object
+//  * @property {number} code of event
+//  */
+//
+//
+// /**
+//  * Event on messages from a window.
+//  *
+//  * @event module:stb/app#message
+//  * @type object
+//  * @property {boolean} broadcast message flag
+//  * @property {string} message received from window
+//  * @property {object} data received from window
+//  */
+//
+//
+// /**
+//  * Fires stb device media events.
+//  *
+//  * @param {number} event code
+//  * @param {string} info associated data in **JSON** format
+//  */
+// window.stbEvent.onEvent = function ( event, info ) {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onEvent ) {
+//             // proxy call
+//             frame.stbEvent.onEvent(event, info);
+//         }
+//     });
+//
+//     // there are some listeners
+//     if ( app.events['media'] ) {
+//         // additional data
+//         if ( info ) {
+//             try {
+//                 info = JSON.parse(info);
+//             } catch ( e ) {
+//                 debug.log(e);
+//             }
+//         }
+//
+//         // notify listeners
+//         app.emit('media', {code: parseInt(event, 10), info: info});
+//     }
+// };
+//
+//
+// /**
+//  * Fires event on broadcast messages from a window.
+//  *
+//  * @param {number} windowId that sent message
+//  * @param {string} message text
+//  * @param {object} data in sent message
+//  * @fires module:/stb/app#message
+//  */
+// window.stbEvent.onBroadcastMessage = function ( windowId, message, data ) {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onBroadcastMessage ) {
+//             // proxy call
+//             frame.stbEvent.onBroadcastMessage(windowId, message, data);
+//         }
+//     });
+//
+//     if ( app.events['message'] ) {
+//         // notify listeners
+//         app.emit('message', {
+//             broadcast: true,
+//             windowId: windowId,
+//             message: message,
+//             data: data
+//         });
+//     }
+// };
+//
+//
+// /**
+//  * Fires event on messages from a window.
+//  *
+//  * @param {number} windowId that sent message
+//  * @param {string} message text
+//  * @param {object} data in sent message
+//  * @fires module:/stb/app#message
+//  */
+// window.stbEvent.onMessage = function ( windowId, message, data ) {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onMessage ) {
+//             // proxy call
+//             frame.stbEvent.onMessage(windowId, message, data);
+//         }
+//     });
+//
+//     if ( app.events['message'] ) {
+//         // notify listeners
+//         app.emit('message', {
+//             broadcast: false,
+//             windowId: windowId,
+//             message: message,
+//             data: data
+//         });
+//     }
+// };
+//
+//
+// /**
+//  * Event on device mount state.
+//  *
+//  * @event module:stb/app#mount
+//  * @type object
+//  * @property {boolean} state of mount device
+//  */
+//
+//
+// /**
+//  * Fires device mount state event.
+//  *
+//  * @param {boolean} state of mount device
+//  * @fires module:/stb/app#mount
+//  */
+// window.stbEvent.onMount = function ( state ) {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onMount ) {
+//             // proxy call
+//             frame.stbEvent.onMount(state);
+//         }
+//     });
+//
+//     if ( app.events['device:mount'] ) {
+//         // notify listeners
+//         app.emit('device:mount', {state: state});
+//     }
+// };
+//
+//
+// /**
+//  * Event on callback on internet browser link clicked.
+//  *
+//  * @event module:stb/app#media:available
+//  */
+//
+//
+// /**
+//  * Fires event of callback on internet browser link clicked to ask user what to do with link: play or download.
+//  *
+//  * @param {string} mime file type
+//  * @param {string} url resource link
+//  *
+//  * @fires module:/stb/app#media:available
+//  */
+// window.stbEvent.onMediaAvailable = function ( mime, url ) {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onMediaAvailable ) {
+//             // proxy call
+//             frame.stbEvent.onMediaAvailable(mime, url);
+//         }
+//     });
+//
+//     if ( app.events['media:available'] ) {
+//         // notify listeners
+//         app.emit('media:available', {mime: mime, url: url});
+//     }
+// };
+//
+//
+// /**
+//  * Event on internet connection state.
+//  *
+//  * @event module:stb/app#internet:state
+//  * @type object
+//  * @property {boolean} state of internet connection
+//  */
+//
+//
+// /**
+//  * Fires new internet connection state event.
+//  *
+//  * @param {boolean} state of internet connection
+//  * @fires module:/stb/app#internet:state
+//  */
+// window.stbEvent.onNetworkStateChange = function ( state ) {
+//     if ( app.events['internet:state'] ) {
+//         // notify listeners
+//         app.emit('internet:state', {state: state});
+//     }
+// };
+//
+//
+// /**
+//  * Event on document loading progress changes.
+//  *
+//  * @event module:stb/app#browser:progress
+//  * @type object
+//  * @property {number} progress of document loading
+//  */
+//
+//
+// /**
+//  * Fires document loading progress changes event.
+//  *
+//  * @param {number} progress of document loading
+//  * fires module:/stb/app#browser:progress
+//  */
+// window.stbEvent.onWebBrowserProgress = function ( progress ) {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onWebBrowserProgress ) {
+//             // proxy call
+//             frame.stbEvent.onWebBrowserProgress(progress);
+//         }
+//     });
+//
+//     if ( app.events['browser:progress'] ) {
+//         // notify listeners
+//         app.emit('browser:progress', {progress: progress});
+//     }
+// };
+//
+//
+// /**
+//  * Event on browser web window activation event.
+//  *
+//  * @event module:stb/app#window:focus
+//  */
+//
+//
+// /**
+//  * Fires browser web window activation event.
+//  *
+//  * fires module:/stb/app#window:focus
+//  */
+// window.stbEvent.onWindowActivated = function () {
+//     // proxy to all frames
+//     Array.prototype.forEach.call(window.frames, function ( frame ) {
+//         // necessary global object is present
+//         if ( frame.stbEvent && frame.stbEvent.onWindowActivated ) {
+//             // proxy call
+//             frame.stbEvent.onWindowActivated();
+//         }
+//     });
+//
+//     if ( app.events['window:focus'] ) {
+//         // notify listeners
+//         app.emit('window:focus');
+//     }
+// };
 
 
 // new way of string handling
@@ -397,7 +399,6 @@ window.stbEvent.onWindowActivated = function () {
 // since stbapp 2.18
 if ( window.gSTB && gSTB.SetNativeStringMode ) {
     /* eslint new-cap: 0 */
-
     gSTB.SetNativeStringMode(true);
 }
 
@@ -407,3 +408,13 @@ if ( DEVELOP ) {
     //require('stb-develop');
     require('./lib/develop/main');
 }
+
+
+// apply DOM events
+Object.keys(events).forEach(function ( name ) {
+    window.addEventListener(name, events[name]);
+});
+
+
+// public
+module.exports = app;

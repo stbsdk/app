@@ -7,13 +7,13 @@
 
 'use strict';
 
-var app      = require('./lib/core'),
-    events   = require('spa-app/lib/events'),
+var app    = require('./lib/core'),
+    events = require('spa-app/lib/events');
     //router   = require('spa-router'),
-    codes    = require('stb-rc').codes,
+    //codes    = require('stb-rc').codes,
     //metrics  = require('../../src/js/metrics'),
-    keyCodes = {},
-    metrics, key, linkCSS;
+    //keyCodes = {},
+    //metrics, key, linkCSS;
 
 
 // early return
@@ -119,13 +119,13 @@ var app      = require('./lib/core'),
 
 
 // extract key codes
-for ( key in codes ) {
-    if ( key === 'volumeUp' || key === 'volumeDown' ) {
-        continue;
-    }
-    // no need to save key names
-    keyCodes[codes[key]] = true;
-}
+// for ( key in codes ) {
+//     if ( key === 'volumeUp' || key === 'volumeDown' ) {
+//         continue;
+//     }
+//     // no need to save key names
+//     keyCodes[codes[key]] = true;
+// }
 
 
 // create stbEvent global object

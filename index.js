@@ -20,6 +20,8 @@ var app    = require('spa-app/lib/core'),
 //     keyCodes[codes[key]] = true;
 // }
 
+// shims
+require('stb-shim-classlist');
 
 // apply geometry
 require('./lib/metrics');

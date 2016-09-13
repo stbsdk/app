@@ -18,10 +18,13 @@
     "dependencies": {
         "spa-app": "spasdk/app",
         "stb-develop": "stbsdk/develop",
-        "stb-rc": "stbsdk/rc"
+        "stb-rc": "stbsdk/rc",
+        "stb-shim-classlist": "stbsdk/shim-classlist"
     },
     "devDependencies": {
-        "stb-eslint-config": "stbsdk/eslint-config"
+        "stb-eslint-config": "stbsdk/eslint-config",
+        "stb-shim-bind": "stbsdk/shim-bind",
+        "stb-shim-frame": "stbsdk/shim-frame"
     },
     "keywords": [
         "stb",

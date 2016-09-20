@@ -23,7 +23,7 @@
         "stb-shim-classlist": "stbsdk/shim-classlist"
     },
     "devDependencies": {
-        "eslint": "2.*.*",
+        "eslint": "3.*.*",
         "stb-eslint-config": "stbsdk/eslint-config",
         "stb-shim-bind": "stbsdk/shim-bind",
         "stb-shim-frame": "stbsdk/shim-frame"

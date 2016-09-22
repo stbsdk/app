@@ -26,8 +26,9 @@ require('stb-shim-classlist');
 // apply geometry
 require('./lib/metrics');
 
-// load app css
-require('./lib/css');
+// load sdk+app css
+require('./lib/css')('sdk');
+require('./lib/css')('app');
 
 
 // set max browser window size

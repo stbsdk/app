@@ -19,7 +19,7 @@
     "dependencies": {
         "spa-app": "spasdk/app",
         "stb-develop": "stbsdk/develop",
-        "stb-rc": "stbsdk/rc",
+        "stb-keys": "stbsdk/keys",
         "stb-shim-classlist": "stbsdk/shim-classlist"
     },
     "devDependencies": {

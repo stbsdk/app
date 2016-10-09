@@ -24,6 +24,9 @@ table {
 a {
     text-decoration: none; }
 
+.invisible {
+    visibility: hidden; }
+
 /* stb-app: release */
 html, body {
     -webkit-user-select: none; }

@@ -24,7 +24,7 @@
     },
     "devDependencies": {
         "eslint": "3.*.*",
-        "stb-eslint-config": "stbsdk/eslint-config",
+        "stb-eslint-config": "1.*.*",
         "stb-shim-bind": "stbsdk/shim-bind",
         "stb-shim-frame": "stbsdk/shim-frame"
     },

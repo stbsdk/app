@@ -1,9 +1,10 @@
 Application core
 ================
 
-[![Build Status](https://img.shields.io/travis/stbsdk/app.svg?style=flat-square)](https://travis-ci.org/stbsdk/app)
-[![NPM version](https://img.shields.io/npm/v/stb-app.svg?style=flat-square)](https://www.npmjs.com/package/stb-app)
-[![Dependencies Status](https://img.shields.io/david/stbsdk/app.svg?style=flat-square)](https://david-dm.org/stbsdk/app)
+[![build status](https://img.shields.io/travis/stbsdk/app.svg?style=flat-square)](https://travis-ci.org/stbsdk/app)
+[![npm version](https://img.shields.io/npm/v/stb-app.svg?style=flat-square)](https://www.npmjs.com/package/stb-app)
+[![dependencies status](https://img.shields.io/david/stbsdk/app.svg?style=flat-square)](https://david-dm.org/stbsdk/app)
+[![devDependencies status](https://img.shields.io/david/dev/stbsdk/app.svg?style=flat-square)](https://david-dm.org/stbsdk/app?type=dev)
 [![Gitter](https://img.shields.io/badge/gitter-join%20chat-blue.svg?style=flat-square)](https://gitter.im/DarkPark/stbsdk)
 
 

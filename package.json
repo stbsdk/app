@@ -17,7 +17,7 @@
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
     "dependencies": {
-        "spa-app": "spasdk/app",
+        "spa-app": "1.*.*",
         "stb-develop": "stbsdk/develop",
         "stb-keys": "stbsdk/keys",
         "stb-shim-classlist": "stbsdk/shim-classlist"

@@ -19,7 +19,7 @@
     "dependencies": {
         "spa-app": "1.*.*",
         "stb-keys": "1.*.*",
-        "stb-shim-classlist": "stbsdk/shim-classlist"
+        "stb-shim-classlist": "1.*.*"
     },
     "devDependencies": {
         "eslint": "3.*.*",

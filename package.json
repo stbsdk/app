@@ -25,7 +25,7 @@
         "eslint": "3.*.*",
         "stb-eslint-config": "1.*.*",
         "stb-shim-bind": "1.*.*",
-        "stb-shim-frame": "stbsdk/shim-frame"
+        "stb-shim-frame": "1.*.*"
     },
     "keywords": [
         "stb",

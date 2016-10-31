@@ -19,13 +19,13 @@
     "dependencies": {
         "spa-app": "1.*.*",
         "stb-keys": "1.*.*",
-        "stb-shim-classlist": "1.*.*"
+        "stb-shim-classlist": "1.*.*",
+        "stb-shim-bind": "1.*.*",
+        "stb-shim-frame": "1.*.*"
     },
     "devDependencies": {
         "eslint": "3.*.*",
-        "stb-eslint-config": "1.*.*",
-        "stb-shim-bind": "1.*.*",
-        "stb-shim-frame": "1.*.*"
+        "stb-eslint-config": "1.*.*"
     },
     "keywords": [
         "stb",

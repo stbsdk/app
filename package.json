@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "spa-app": "1.*.*",
+        "spa-dom": "1.*.*",
         "stb-keys": "1.*.*",
         "stb-shim-classlist": "1.*.*",
         "stb-shim-bind": "1.*.*",

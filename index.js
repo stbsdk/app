@@ -55,6 +55,14 @@ if ( DEVELOP ) {
 }
 
 
+// disable right click in release mode
+events.contextmenu = function ( event ) {
+    if ( !DEVELOP ) {
+        event.preventDefault();
+    }
+};
+
+
 // apply DOM events
 Object.keys(events).forEach(function ( name ) {
     window.addEventListener(name, events[name]);

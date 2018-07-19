@@ -1,6 +1,6 @@
 {
     "name": "stb-app",
-    "version": "1.5.0",
+    "version": "2.0.0",
     "description": "STB SDK application core.",
     "author": {
         "name": "Stanislav Kalashnik",
@@ -17,17 +17,17 @@
         "jsdoc": "jsdoc --destination docs *.js readme.md"
     },
     "dependencies": {
-        "spa-app": "1.*.*",
-        "spa-dom": "1.*.*",
-        "stb-keys": "1.*.*",
-        "stb-shim-classlist": "1.*.*",
-        "stb-shim-bind": "1.*.*",
-        "stb-shim-frame": "1.*.*"
+        "spa-app": "^1.5.0",
+        "spa-dom": "^1.4.0",
+        "stb-keys": "^1.4.3",
+        "stb-shim-classlist": "^1.4.0",
+        "stb-shim-bind": "^1.4.0",
+        "stb-shim-frame": "^1.4.0"
     },
     "devDependencies": {
-        "eslint": "4.*.*",
-        "jsdoc": "3.*.*",
-        "stb-eslint-config": "1.*.*"
+        "eslint": "^4.19.1",
+        "jsdoc": "^3.5.5",
+        "stb-eslint-config": "^1.0.0"
     },
     "keywords": [
         "stb",

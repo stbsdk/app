@@ -1,6 +1,6 @@
 {
     "name": "stb-app",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "STB SDK application core.",
     "author": {
         "name": "Stanislav Kalashnik",
@@ -17,7 +17,7 @@
         "jsdoc": "jsdoc --destination docs *.js readme.md"
     },
     "dependencies": {
-        "spa-app": "^1.5.0",
+        "spa-app": "^1.5.1",
         "spa-dom": "^1.4.0",
         "stb-keys": "^1.4.3",
         "stb-shim-classlist": "^1.4.0",

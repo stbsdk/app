@@ -1,6 +1,6 @@
 {
     "name": "stb-app",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "STB SDK application core.",
     "author": {
         "name": "Stanislav Kalashnik",
